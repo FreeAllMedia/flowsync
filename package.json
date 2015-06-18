@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/FreeAllMedia/flowsync",
   "dependencies": {
+    "async": "^1.2.1",
     "inflection": "^1.7.1"
   },
   "devDependencies": {
@@ -40,9 +41,10 @@
     "karma": "^0.12.36",
     "karma-browserify": "^4.2.1",
     "karma-chai": "^0.1.0",
+    "karma-detect-browsers": "^2.0.0",
     "karma-mocha": "^0.1.10",
     "karma-sauce-launcher": "^0.2.11",
-    "karma-detect-browsers": "^2.0.0",
-    "mocha": "^2.2.5"
+    "mocha": "^2.2.5",
+    "sinon": "^1.15.3"
   }
 }
