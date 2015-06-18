@@ -11,17 +11,25 @@
     "url": "https://github.com/FreeAllMedia/flowsync.git"
   },
   "keywords": [
-    "Inflect",
-    "Change",
-    "Case",
-    "String",
-    "Plural",
-    "Snake",
-    "Pascal",
-    "Underscore"
+    "flow",
+    "async",
+    "sync"
   ],
   "author": "Free All Media",
-  "contributors": [],
+  "contributors": [
+    {
+      "name": "nicosommi",
+      "email": "nicosommi@gmail.com"
+    },
+    {
+      "name": "dcrockwell",
+      "email": "dcautomates@gmail.com"
+    },
+    {
+      "name": "paulgoggin",
+      "email": "pgoggin@gmail.com"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/FreeAllMedia/flowsync/issues"
