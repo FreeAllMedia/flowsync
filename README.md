@@ -3,10 +3,24 @@
 An ES6 flow control component that works equally well on both server and client.
 
 ```javascript
-import Flowsync from "flowsync";
+import flowsync from "flowsync";
 
-const flowsync = new Flowsync;
-flowsync.saySomething(); // will output "Something"
+let functionCollection = [
+  function (ready) {
+    setTimeout(ready, 100);
+  },
+  function (ready) {
+    setTimeout(ready, 100);
+  },
+  function (ready) {
+    setTimeout(ready, 100);
+  }
+];
+
+flowsync.series(functionCollection, function finalCallback(error, results) {
+  // do something after 300 ms
+});
+
 ```
 
 # Quality and Compatibility
@@ -59,7 +73,14 @@ define(["require"] , function (require) {
 
 # Getting Started
 
-
+# Function list
+For a detailed interface documentation take a look to the [async repo](https://github.com/caolan/async)
+* series(functionArray, finalCallback)
+* parallel(functionArray, finalCallback)
+* mapSeries(array, iteratorFunction[item, cb], finalCallback)
+* mapParallel(array, iteratorFunction[item, cb], finalCallback)
+* eachSeries(array, iteratorFunction[item, cb], finalCallback)
+* eachParallel(array, iteratorFunction[item, cb], finalCallback)
 
 # How to Contribute
 
