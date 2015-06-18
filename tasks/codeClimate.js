@@ -15,8 +15,8 @@ export default function codeClimate(repositoryToken, stdout, callback) {
       encoding: "utf8"
     });
   if(result.stderr && result.stderr !== "") {
-    stdout.write(`\nError on codeclimate: ${stderr} \n`);
-    callback(new Error(stderr));
+    stdout.write(`\nError on codeclimate: ${result.stderr} \n`);
+    callback(new Error(result.stderr));
   } else {
     stdout.write("\nSent to code climate OK!\n");
     callback();
