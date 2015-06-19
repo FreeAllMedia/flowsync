@@ -12,9 +12,10 @@ gulp.task("test-local", ["build"], (cb) => {
     .pipe(istanbul()) // Covering files
     .pipe(istanbul.hookRequire()) // Force `require` to return covered files
     .on("finish", () => {
+      console.log("");
       gulp.src(paths.build.spec)
         .pipe(mocha())
-        .pipe(istanbul.writeReports({dir: "./", reporters: ["lcovonly"]})) // Creating the reports after tests ran
+        .pipe(istanbul.writeReports({dir: "./", coverage: true, reporters: ["text-summary", "lcovonly"]})) // Creating the reports after tests ran
 		//.pipe(istanbul.enforceThresholds({ thresholds: { global: 90 } })) // Enforce a coverage of at least 90%
         .on("end", () => {
           //send report to code climate
