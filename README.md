@@ -73,8 +73,42 @@ define(["require"] , function (require) {
 
 # Getting Started
 
+```
+//ES6
+
+flowsync.series([
+    (next) => {
+      //do something
+      next(null, 1);
+    },
+    (next) => {
+      next(new Error("some error"));
+    }
+  ], (error, results) => {
+    //do something after the series
+  });
+
+```
+
+```
+//ES5
+
+flowsync.series([
+    function stepOne(next) {
+      //do something
+      next(null, 1);
+    },
+    function stepTwo(next) {
+      next(new Error("some error"));
+    }
+  ], function finalStep(error, results) {
+    //do something after the series
+  });
+
+```
+
 # Function list
-For a detailed interface documentation take a look to the [async repo](https://github.com/caolan/async)
+They all work pretty much similar. For a detailed interface documentation take a look to the [async repo](https://github.com/caolan/async). These is the list currently supported by flowsync:
 * series(functionArray, finalCallback)
 * parallel(functionArray, finalCallback)
 * mapSeries(array, iteratorFunction[item, cb], finalCallback)

@@ -24,7 +24,7 @@ FNDA:2,parallel
 FNDA:2,eachParallel
 FNDA:2,eachSeries
 FNDA:2,mapParallel
-FNDA:2,series
+FNDA:4,series
 FNDA:2,mapSeries
 DA:4,1
 DA:8,6
@@ -46,9 +46,9 @@ DA:253,2
 DA:287,2
 DA:288,6
 DA:291,2
-DA:338,2
-DA:339,4
-DA:342,2
+DA:338,4
+DA:339,8
+DA:342,4
 DA:376,2
 DA:377,6
 DA:380,2

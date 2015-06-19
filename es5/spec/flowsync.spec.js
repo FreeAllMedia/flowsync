@@ -16,6 +16,36 @@ describe("flowsync", function () {
     clock.restore();
   });
 
+  describe("(example usage)", function () {
+    describe("(ES6)", function () {
+      it("should work as expected", function (done) {
+        flowsync.series([function (next) {
+          //do something
+          next(null, 1);
+        }, function (next) {
+          next(new Error("some error"));
+        }], function (error, results) {
+          //do something after the series
+          done();
+        });
+      });
+    });
+
+    describe("(ES5)", function () {
+      it("should work as expected", function (done) {
+        flowsync.series([function stepOne(next) {
+          //do something
+          next(null, 1);
+        }, function stepTwo(next) {
+          next(new Error("some error"));
+        }], function finalStep(error, results) {
+          //do something after the series
+          done();
+        });
+      });
+    });
+  });
+
   describe("flowsync.parallel(functionCollection, callback)", function () {
     var functionOne = undefined,
         functionTwo = undefined,
