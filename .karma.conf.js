@@ -70,7 +70,7 @@ if (process.env.SAUCE_USERNAME) {
      * set up the tests to run through them.
      */
     configOptions.sauceLabs = {
-        testName: "flowsync.js"
+        testName: "Flowsync.js"
     };
     const customLaunchers = require("./.sauce.json").platforms;
     configOptions.customLaunchers = customLaunchers;
