@@ -50,10 +50,15 @@
     "karma": "^0.12.36",
     "karma-browserify": "^4.2.1",
     "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^0.1.12",
     "karma-detect-browsers": "^2.0.0",
+    "karma-firefox-launcher": "^0.1.6",
     "karma-mocha": "^0.1.10",
+    "karma-phantomjs-launcher": "^0.2.0",
+    "karma-safari-launcher": "^0.1.1",
     "karma-sauce-launcher": "^0.2.11",
     "mocha": "^2.2.5",
+    "phantomjs": "^1.9.17",
     "sinon": "^1.15.3"
   }
 }

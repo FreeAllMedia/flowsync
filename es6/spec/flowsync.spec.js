@@ -146,7 +146,7 @@ describe("flowsync", function () {
         array;
 
     beforeEach(function () {
-      items = [0,1,2];
+      items = [0, 1, 2];
 
       itemSpy = [sinon.spy((item, finish) => {
           finish();

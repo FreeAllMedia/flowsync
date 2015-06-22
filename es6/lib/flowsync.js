@@ -2,22 +2,22 @@
 var async = require('async');
 
 /**
- * # Async
+ * # FlowSync
  *
  * Manage serial/parallel flow-control and iteration.
  *
- * ## Why Not Use Async.js Directly?
+ * ## Why Not Use FlowSync.js Directly?
  *
- * Async.js provides a lot of great functionality, but at 5k gzipped, it's hard to justify the entire library when all we need are a few flow-control and iteration methods. This is especially true now that FAM has switched to browserify, as any superfluous code delivered to the client is undesireable.
+ * FlowSync.js provides a lot of great functionality, but at 5k gzipped, it's hard to justify the entire library when all we need are a few flow-control and iteration methods. This is especially true now that FAM has switched to browserify, as any superfluous code delivered to the client is undesireable.
  *
- * Async currently wraps Async.js so that it can be replaced with lean, specialized functions at a later time. For now, it is only a wrapper for Async.js that provides an immutable standard interface.
+ * FlowSync currently wraps FlowSync.js so that it can be replaced with lean, specialized functions at a later time. For now, it is only a wrapper for FlowSync.js that provides an immutable standard interface.
  *
  * # Static Functions
  *
- * ## Async.parallel(functionCollection, callback)
+ * ## FlowSync.parallel(functionCollection, callback)
  *
  * ```javascript
- * Async.parallel(functionCollection, functionsCompleted);
+ * FlowSync.parallel(functionCollection, functionsCompleted);
  *
  * var functionCollection = [
  *   functionOne, // Called at same time as functionTwo
@@ -47,10 +47,10 @@ var async = require('async');
  * }
  * ```
  *
- * ## Async.series(functionCollection, callback)
+ * ## FlowSync.series(functionCollection, callback)
  *
  * ```javascript
- * Async.series(functionCollection, functionsCompleted);
+ * FlowSync.series(functionCollection, functionsCompleted);
  *
  * var functionCollection = [
  *   functionOne, // Called first
@@ -80,10 +80,10 @@ var async = require('async');
  * }
  * ```
  *
- * ## Async.mapSeries(values, iterator, callback)
+ * ## FlowSync.mapSeries(values, iterator, callback)
  *
  * ```javascript
- * Async.mapSeries(values, iteratorFunction, iterationsCompleted);
+ * FlowSync.mapSeries(values, iteratorFunction, iterationsCompleted);
  *
  * var values = [1, 2, 3];
  *
@@ -99,10 +99,10 @@ var async = require('async');
  * }
  * ```
  *
- * ## Async.mapParallel(values, iterator, callback)
+ * ## FlowSync.mapParallel(values, iterator, callback)
  *
  * ```javascript
- * Async.mapParallel(values, iteratorFunction, iterationsCompleted);
+ * FlowSync.mapParallel(values, iteratorFunction, iterationsCompleted);
  *
  * var values = [1, 2, 3];
  *
@@ -118,10 +118,10 @@ var async = require('async');
  * }
  * ```
  *
- * @class Async
+ * @class FlowSync
  * @static
  */
-export default class Async {
+export default class FlowSync {
   /* Static Interface */
 
   /**
@@ -135,7 +135,7 @@ export default class Async {
   * @example
   *
   * ```javascript
-  * Async.parallel(functionCollection, functionsCompleted);
+  * FlowSync.parallel(functionCollection, functionsCompleted);
   *
   * var functionCollection = [
   *   functionOne, // Called at same time as functionTwo
@@ -187,7 +187,7 @@ export default class Async {
   *   //some code
   *   finishStep(error, result);
   * }
-  * Async.eachParallel(items, iteratorFunction, callback);
+  * FlowSync.eachParallel(items, iteratorFunction, callback);
   * ```
   */
   static eachParallel(...options) {
@@ -212,7 +212,7 @@ export default class Async {
   *   //some code
   *   finishStep(error, result);
   * }
-  * Async.eachSeries(items, iteratorFunction, callback);
+  * FlowSync.eachSeries(items, iteratorFunction, callback);
   * ```
   */
   static eachSeries(...options) {
@@ -231,7 +231,7 @@ export default class Async {
   * @example
   *
   * ```javascript
-  * Async.mapParallel(values, iteratorFunction, iterationsCompleted);
+  * FlowSync.mapParallel(values, iteratorFunction, iterationsCompleted);
   *
   * var values = [1, 2, 3];
   *
@@ -262,7 +262,7 @@ export default class Async {
   * @example
   *
   * ```javascript
-  * Async.series(functionCollection, functionsCompleted);
+  * FlowSync.series(functionCollection, functionsCompleted);
   *
   * var functionCollection = [
   *   functionOne, // Called first
@@ -308,7 +308,7 @@ export default class Async {
   * @example
   *
   * ```javascript
-  * Async.mapSeries(values, iteratorFunction, iterationsCompleted);
+  * FlowSync.mapSeries(values, iteratorFunction, iterationsCompleted);
   *
   * var values = [1, 2, 3];
   *
