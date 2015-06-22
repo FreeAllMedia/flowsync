@@ -12,6 +12,7 @@ export default function codeClimate(repositoryToken, stdout, callback) {
       `CODECLIMATE_REPO_TOKEN=${repositoryToken} node ${__dirname}/../node_modules/codeclimate-test-reporter/bin/codeclimate.js < ${__dirname}/../lcov.info`
     ],
     {
+      cwd: __dirname,
       encoding: "utf8"
     });
   if(result.stderr && result.stderr !== "") {

@@ -12,22 +12,23 @@ gulp.task("test-local", ["build"], (cb) => {
     .pipe(istanbul()) // Covering files
     .pipe(istanbul.hookRequire()) // Force `require` to return covered files
     .on("finish", () => {
-      console.log("");
       gulp.src(paths.build.spec)
         .pipe(mocha())
-        .pipe(istanbul.writeReports({dir: "./", coverage: true, reporters: ["text-summary", "lcovonly"]})) // Creating the reports after tests ran
+        .pipe(istanbul.writeReports({dir: `${__dirname}/../`, reporters: ["text-summary", "lcovonly"]})) // Creating the reports after tests ran
 		//.pipe(istanbul.enforceThresholds({ thresholds: { global: 90 } })) // Enforce a coverage of at least 90%
         .on("end", () => {
-          //send report to code climate
-          if (process.env.TRAVIS_BUILD_NUMBER) {
-            if (process.env.TRAVIS_JOB_NUMBER === `${process.env.TRAVIS_BUILD_NUMBER}.1`) {
-              codeClimate("62c878948a8e4e3f9ed8764ee0835816d91ec5c4ed76b24eb83743c0266514d7", cb);
+          
+            //send report to code climate
+            if (process.env.TRAVIS_BUILD_NUMBER) {
+              if (process.env.TRAVIS_JOB_NUMBER === `${process.env.TRAVIS_BUILD_NUMBER}.1`) {
+                codeClimate("57e6031e72bc4ee41aa19fa6681f2336a21f980ffedb1da9edb9a7513fb47a9e", cb);
+              } else {
+                cb();
+              }
             } else {
-              cb();
+              codeClimate("57e6031e72bc4ee41aa19fa6681f2336a21f980ffedb1da9edb9a7513fb47a9e", cb);
             }
-          } else {
-            codeClimate("62c878948a8e4e3f9ed8764ee0835816d91ec5c4ed76b24eb83743c0266514d7", cb);
-          }
+          
         });
     });
 });
