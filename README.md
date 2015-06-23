@@ -25,7 +25,7 @@ flowsync.series(functionCollection, function finalCallback(error, results) {
 
 # Quality and Compatibility
 
-[![Build Status](https://travis-ci.org/FreeAllMedia/flowsync.png?branch=master)](https://travis-ci.org/FreeAllMedia/flowsync) [![Coverage Status](https://coveralls.io/repos/FreeAllMedia/flowsync/badge.svg)](https://coveralls.io/r/FreeAllMedia/flowsync) [![Code Climate](https://codeclimate.com/repos/5582170a695680742a009284/badges/2774ba459c4f960769d9/gpa.svg)](https://codeclimate.com/repos/5582170a695680742a009284/feed) [![Dependency Status](https://david-dm.org/FreeAllMedia/flowsync.png?theme=shields.io)](https://david-dm.org/FreeAllMedia/flowsync?theme=shields.io) [![Dev Dependency Status](https://david-dm.org/FreeAllMedia/flowsync/dev-status.svg)](https://david-dm.org/FreeAllMedia/flowsync?theme=shields.io#info=devDependencies)
+[![Build Status](https://travis-ci.org/FreeAllMedia/flowsync.png?branch=master)](https://travis-ci.org/FreeAllMedia/flowsync) [![Coverage Status](https://coveralls.io/repos/FreeAllMedia/flowsync/badge.svg)](https://coveralls.io/r/FreeAllMedia/flowsync) [![Code Climate](https://codeclimate.com/github/FreeAllMedia/flowsync/badges/gpa.svg)](https://codeclimate.com/github/FreeAllMedia/flowsync) [![Dependency Status](https://david-dm.org/FreeAllMedia/flowsync.png?theme=shields.io)](https://david-dm.org/FreeAllMedia/flowsync?theme=shields.io) [![Dev Dependency Status](https://david-dm.org/FreeAllMedia/flowsync/dev-status.svg)](https://david-dm.org/FreeAllMedia/flowsync?theme=shields.io#info=devDependencies)
 
 *Every single build and release is automatically tested on the following platforms:*
 
