@@ -14,6 +14,42 @@ describe("flowsync", function () {
     clock.restore();
   });
 
+  describe("(example usage)", () => {
+    describe("(ES6)", () => {
+      it("should work as expected", done => {
+        flowsync.series([
+          (next) => {
+            //do something
+            next(null, 1);
+          },
+          (next) => {
+            next(new Error("some error"));
+          }
+        ], (error, results) => {
+          //do something after the series
+          done();
+        });
+      });
+    });
+
+    describe("(ES5)", () => {
+      it("should work as expected", done => {
+        flowsync.series([
+          function stepOne(next) {
+            //do something
+            next(null, 1);
+          },
+          function stepTwo(next) {
+            next(new Error("some error"));
+          }
+        ], function finalStep(error, results) {
+          //do something after the series
+          done();
+        });
+      });
+    });
+  });
+
   describe("flowsync.parallel(functionCollection, callback)", function () {
     let functionOne,
         functionTwo,
@@ -110,7 +146,7 @@ describe("flowsync", function () {
         array;
 
     beforeEach(function () {
-      items = [0,1,2];
+      items = [0, 1, 2];
 
       itemSpy = [sinon.spy((item, finish) => {
           finish();

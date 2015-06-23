@@ -1,12 +1,26 @@
 # Flowsync.js [![npm version](https://img.shields.io/npm/v/flowsync.svg)](https://www.npmjs.com/package/flowsync) [![license type](https://img.shields.io/npm/l/flowsync.svg)](https://github.com/FreeAllMedia/flowsync.git/blob/master/LICENSE) [![npm downloads](https://img.shields.io/npm/dm/flowsync.svg)](https://www.npmjs.com/package/flowsync) ![ECMAScript 6](https://img.shields.io/badge/ECMAScript-6-red.svg)
 
-An ES6 flow control component that works equally well on both server and client.
+An ES6 flow control component.
 
 ```javascript
-import Flowsync from "flowsync";
+import flowsync from "flowsync";
 
-const flowsync = new Flowsync;
-flowsync.saySomething(); // will output "Something"
+let functionCollection = [
+  function (ready) {
+    setTimeout(ready, 100);
+  },
+  function (ready) {
+    setTimeout(ready, 100);
+  },
+  function (ready) {
+    setTimeout(ready, 100);
+  }
+];
+
+flowsync.series(functionCollection, function finalCallback(error, results) {
+  // do something after 300 ms
+});
+
 ```
 
 # Quality and Compatibility
@@ -15,11 +29,14 @@ flowsync.saySomething(); // will output "Something"
 
 *Every single build and release is automatically tested on the following platforms:*
 
-![node 0.12.x](https://img.shields.io/badge/node-0.12.x-brightgreen.svg) ![node 0.11.x](https://img.shields.io/badge/node-0.11.x-brightgreen.svg) ![node 0.10.x](https://img.shields.io/badge/node-0.10.x-red.svg) 
-![iojs 2.x.x](https://img.shields.io/badge/iojs-2.x.x-brightgreen.svg) ![iojs 1.x.x](https://img.shields.io/badge/iojs-1.x.x-brightgreen.svg)
+![node 0.12.x](https://img.shields.io/badge/node-0.12.x-brightgreen.svg) ![node 0.11.x](https://img.shields.io/badge/node-0.11.x-brightgreen.svg) ![iojs 2.x.x](https://img.shields.io/badge/iojs-2.x.x-brightgreen.svg) ![iojs 1.x.x](https://img.shields.io/badge/iojs-1.x.x-brightgreen.svg)
 
+No browser support, yet.
 
-[![Sauce Test Status](https://saucelabs.com/browser-matrix/flowsync.svg)](https://saucelabs.com/u/flowsync)
+<!--
+No browser support, yet. See: https://www.pivotaltracker.com/n/projects/1366342/stories/97586636
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/flowsync.svg)](https://saucelabs.com/u/flowsync) 
+-->
 
 
 *If your platform is not listed above, you can test your local environment for compatibility by copying and pasting the following commands into your terminal:*
@@ -59,7 +76,48 @@ define(["require"] , function (require) {
 
 # Getting Started
 
+```
+//ES6
 
+flowsync.series([
+    (next) => {
+      //do something
+      next(null, 1);
+    },
+    (next) => {
+      next(new Error("some error"));
+    }
+  ], (error, results) => {
+    //do something after the series
+  });
+
+```
+
+```
+//ES5
+
+flowsync.series([
+    function stepOne(next) {
+      //do something
+      next(null, 1);
+    },
+    function stepTwo(next) {
+      next(new Error("some error"));
+    }
+  ], function finalStep(error, results) {
+    //do something after the series
+  });
+
+```
+
+# Function list
+They all work pretty much similar. For a detailed interface documentation take a look to the [async repo](https://github.com/caolan/async). These is the list currently supported by flowsync:
+* series(functionArray, finalCallback)
+* parallel(functionArray, finalCallback)
+* mapSeries(array, iteratorFunction[item, cb], finalCallback)
+* mapParallel(array, iteratorFunction[item, cb], finalCallback)
+* eachSeries(array, iteratorFunction[item, cb], finalCallback)
+* eachParallel(array, iteratorFunction[item, cb], finalCallback)
 
 # How to Contribute
 
@@ -77,6 +135,7 @@ It's easy to run the test suite locally, and *highly recommended* if you're usin
 npm test
 ```
 
+<!--
 ### SauceLabs Credentials
 
 We've setup our tests to automatically detect whether or not you have our saucelabs credentials installed in your environment (`process.env.SAUCE_USERNAME`).
@@ -88,6 +147,7 @@ If our saucelabs credentials are not installed, the tests are setup to automatic
 If you'd like to develop Flowsync.js using SauceLabs, you need only create a new entry in our [issue tracker](https://github.com/FreeAllMedia/flowsync/issues) asking for our SauceLabs credentials.
 
 We'll send over all credentials specific to this project so that you can perform comprehensive cross-platform tests.
+-->
 
 
 ## Public Shared Floobits Workspace

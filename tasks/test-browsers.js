@@ -19,7 +19,6 @@ gulp.task("test-browsers", function (done) {
 
 function runKarma(done) {
 	karma.start({
-		configFile: __dirname + "/../.karma.conf.js",
-		singleRun: true
+		configFile: __dirname + "/../.karma.conf.js"
 	}, done);
 }

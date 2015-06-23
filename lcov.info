@@ -5,7 +5,7 @@ FN:8,defineProperties
 FN:8,(anonymous_3)
 FN:10,_classCallCheck
 FN:135,(anonymous_5)
-FN:136,Async
+FN:136,FlowSync
 FN:186,parallel
 FN:217,eachParallel
 FN:248,eachSeries
@@ -19,12 +19,12 @@ FNDA:1,defineProperties
 FNDA:1,(anonymous_3)
 FNDA:0,_classCallCheck
 FNDA:1,(anonymous_5)
-FNDA:0,Async
+FNDA:0,FlowSync
 FNDA:2,parallel
 FNDA:2,eachParallel
 FNDA:2,eachSeries
 FNDA:2,mapParallel
-FNDA:2,series
+FNDA:4,series
 FNDA:2,mapSeries
 DA:4,1
 DA:8,6
@@ -46,9 +46,9 @@ DA:253,2
 DA:287,2
 DA:288,6
 DA:291,2
-DA:338,2
-DA:339,4
-DA:342,2
+DA:338,4
+DA:339,8
+DA:342,4
 DA:376,2
 DA:377,6
 DA:380,2
