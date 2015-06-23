@@ -9,7 +9,7 @@ script: npm test
 before_script:
   - npm install
 after_success:
-  - coveralls
+  - ./node_modules/coveralls/bin/coveralls.js < ./lcov.info
 env:
   global:
     - secure: AB+88o4aPeR7kTW9Ol7ubSKtw30dlDJvpCoYJMR/Ks7PhXXvH2i7uVuEJUTbV43AfU5T6oyBRUdEZgB2cCzV1aoKJTsA8MKycHKLMUAfDpbCwRp9WVuilt3P+wqIXpOZY+d2CItHP359hkd1+IOxnExj7oR6g50SyhiVPRr/edkbSAtCmur9mEu1VM4Su/2hEJ/k+wvLcVIx9VyPVFGsjlCvOIgAzqVP+ZmwSM9gHSOAljNCCE9MWOskv/joIgK9hO00SjeQ7OiTS7Sn+wqDZPppj8dwdGOaKOTmzvjdL1ELQmdcEXuIJoLppf+/JMm8I0g79cl853pUdqwHdV0IkhFMlEPaJe86OTDmrbTQ/UfhJHjTm82TDqAQgZ4hXm2Nh/0jurCpNLaTgs6Uk0n6Y4GY2emhQCtcLMsExgzRrBEu7Y62KG4RsugrfJuNE81NpKYQrhru4ck8rGxIRgq9/zh3qLU1msjX0naLj/mqMqQCz7VhnAjoMqF4Ay70N68MdmpjaaMQFazNfMsUHWsocbVEYZJXKLWge3j+pTnIn6lmhH5PMZMD1vfkSuutPrZE/DDj7h7gfzfWbl6efNBhV8k9SRWaEyoBeRf4dK8y/QmSM2t72ZPU4tXK0hzc1PWx400W8yAvjMiBuW3j81QPEoWqD0Wz/xJjhpE0nDEEiJM=
