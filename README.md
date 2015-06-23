@@ -1,6 +1,6 @@
 # Flowsync.js [![npm version](https://img.shields.io/npm/v/flowsync.svg)](https://www.npmjs.com/package/flowsync) [![license type](https://img.shields.io/npm/l/flowsync.svg)](https://github.com/FreeAllMedia/flowsync.git/blob/master/LICENSE) [![npm downloads](https://img.shields.io/npm/dm/flowsync.svg)](https://www.npmjs.com/package/flowsync) ![ECMAScript 6](https://img.shields.io/badge/ECMAScript-6-red.svg)
 
-An ES6 flow control component that works equally well on both server and client.
+An ES6 flow control component.
 
 ```javascript
 import flowsync from "flowsync";
