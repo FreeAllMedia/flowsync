@@ -12,22 +12,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var async = require('async');
 
 /**
- * # Async
+ * # FlowSync
  *
  * Manage serial/parallel flow-control and iteration.
  *
- * ## Why Not Use Async.js Directly?
+ * ## Why Not Use FlowSync.js Directly?
  *
- * Async.js provides a lot of great functionality, but at 5k gzipped, it's hard to justify the entire library when all we need are a few flow-control and iteration methods. This is especially true now that FAM has switched to browserify, as any superfluous code delivered to the client is undesireable.
+ * FlowSync.js provides a lot of great functionality, but at 5k gzipped, it's hard to justify the entire library when all we need are a few flow-control and iteration methods. This is especially true now that FAM has switched to browserify, as any superfluous code delivered to the client is undesireable.
  *
- * Async currently wraps Async.js so that it can be replaced with lean, specialized functions at a later time. For now, it is only a wrapper for Async.js that provides an immutable standard interface.
+ * FlowSync currently wraps FlowSync.js so that it can be replaced with lean, specialized functions at a later time. For now, it is only a wrapper for FlowSync.js that provides an immutable standard interface.
  *
  * # Static Functions
  *
- * ## Async.parallel(functionCollection, callback)
+ * ## FlowSync.parallel(functionCollection, callback)
  *
  * ```javascript
- * Async.parallel(functionCollection, functionsCompleted);
+ * FlowSync.parallel(functionCollection, functionsCompleted);
  *
  * var functionCollection = [
  *   functionOne, // Called at same time as functionTwo
@@ -57,10 +57,10 @@ var async = require('async');
  * }
  * ```
  *
- * ## Async.series(functionCollection, callback)
+ * ## FlowSync.series(functionCollection, callback)
  *
  * ```javascript
- * Async.series(functionCollection, functionsCompleted);
+ * FlowSync.series(functionCollection, functionsCompleted);
  *
  * var functionCollection = [
  *   functionOne, // Called first
@@ -90,10 +90,10 @@ var async = require('async');
  * }
  * ```
  *
- * ## Async.mapSeries(values, iterator, callback)
+ * ## FlowSync.mapSeries(values, iterator, callback)
  *
  * ```javascript
- * Async.mapSeries(values, iteratorFunction, iterationsCompleted);
+ * FlowSync.mapSeries(values, iteratorFunction, iterationsCompleted);
  *
  * var values = [1, 2, 3];
  *
@@ -109,10 +109,10 @@ var async = require('async');
  * }
  * ```
  *
- * ## Async.mapParallel(values, iterator, callback)
+ * ## FlowSync.mapParallel(values, iterator, callback)
  *
  * ```javascript
- * Async.mapParallel(values, iteratorFunction, iterationsCompleted);
+ * FlowSync.mapParallel(values, iteratorFunction, iterationsCompleted);
  *
  * var values = [1, 2, 3];
  *
@@ -128,16 +128,16 @@ var async = require('async');
  * }
  * ```
  *
- * @class Async
+ * @class FlowSync
  * @static
  */
 
-var Async = (function () {
-  function Async() {
-    _classCallCheck(this, Async);
+var FlowSync = (function () {
+  function FlowSync() {
+    _classCallCheck(this, FlowSync);
   }
 
-  _createClass(Async, null, [{
+  _createClass(FlowSync, null, [{
     key: 'parallel',
 
     /* Static Interface */
@@ -153,7 +153,7 @@ var Async = (function () {
     * @example
     *
     * ```javascript
-    * Async.parallel(functionCollection, functionsCompleted);
+    * FlowSync.parallel(functionCollection, functionsCompleted);
     *
     * var functionCollection = [
     *   functionOne, // Called at same time as functionTwo
@@ -184,7 +184,11 @@ var Async = (function () {
     * ```
     */
     value: function parallel() {
-      async.parallel.apply(async, arguments);
+      for (var _len = arguments.length, options = Array(_len), _key = 0; _key < _len; _key++) {
+        options[_key] = arguments[_key];
+      }
+
+      async.parallel.apply(async, options);
     }
   }, {
     key: 'eachParallel',
@@ -207,11 +211,15 @@ var Async = (function () {
     *   //some code
     *   finishStep(error, result);
     * }
-    * Async.eachParallel(items, iteratorFunction, callback);
+    * FlowSync.eachParallel(items, iteratorFunction, callback);
     * ```
     */
     value: function eachParallel() {
-      async.each.apply(async, arguments);
+      for (var _len2 = arguments.length, options = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+        options[_key2] = arguments[_key2];
+      }
+
+      async.each.apply(async, options);
     }
   }, {
     key: 'eachSeries',
@@ -234,11 +242,15 @@ var Async = (function () {
     *   //some code
     *   finishStep(error, result);
     * }
-    * Async.eachSeries(items, iteratorFunction, callback);
+    * FlowSync.eachSeries(items, iteratorFunction, callback);
     * ```
     */
     value: function eachSeries() {
-      async.eachSeries.apply(async, arguments);
+      for (var _len3 = arguments.length, options = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+        options[_key3] = arguments[_key3];
+      }
+
+      async.eachSeries.apply(async, options);
     }
   }, {
     key: 'mapParallel',
@@ -255,7 +267,7 @@ var Async = (function () {
     * @example
     *
     * ```javascript
-    * Async.mapParallel(values, iteratorFunction, iterationsCompleted);
+    * FlowSync.mapParallel(values, iteratorFunction, iterationsCompleted);
     *
     * var values = [1, 2, 3];
     *
@@ -272,7 +284,11 @@ var Async = (function () {
     * ```
     */
     value: function mapParallel() {
-      async.map.apply(async, arguments);
+      for (var _len4 = arguments.length, options = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+        options[_key4] = arguments[_key4];
+      }
+
+      async.map.apply(async, options);
     }
   }, {
     key: 'series',
@@ -288,7 +304,7 @@ var Async = (function () {
     * @example
     *
     * ```javascript
-    * Async.series(functionCollection, functionsCompleted);
+    * FlowSync.series(functionCollection, functionsCompleted);
     *
     * var functionCollection = [
     *   functionOne, // Called first
@@ -319,7 +335,11 @@ var Async = (function () {
     * ```
     */
     value: function series() {
-      async.series.apply(async, arguments);
+      for (var _len5 = arguments.length, options = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+        options[_key5] = arguments[_key5];
+      }
+
+      async.series.apply(async, options);
     }
   }, {
     key: 'mapSeries',
@@ -336,7 +356,7 @@ var Async = (function () {
     * @example
     *
     * ```javascript
-    * Async.mapSeries(values, iteratorFunction, iterationsCompleted);
+    * FlowSync.mapSeries(values, iteratorFunction, iterationsCompleted);
     *
     * var values = [1, 2, 3];
     *
@@ -353,12 +373,16 @@ var Async = (function () {
     * ```
     */
     value: function mapSeries() {
-      async.mapSeries.apply(async, arguments);
+      for (var _len6 = arguments.length, options = Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {
+        options[_key6] = arguments[_key6];
+      }
+
+      async.mapSeries.apply(async, options);
     }
   }]);
 
-  return Async;
+  return FlowSync;
 })();
 
-exports['default'] = Async;
+exports['default'] = FlowSync;
 module.exports = exports['default'];

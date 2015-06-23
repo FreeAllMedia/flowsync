@@ -135,6 +135,7 @@ It's easy to run the test suite locally, and *highly recommended* if you're usin
 npm test
 ```
 
+<!--
 ### SauceLabs Credentials
 
 We've setup our tests to automatically detect whether or not you have our saucelabs credentials installed in your environment (`process.env.SAUCE_USERNAME`).
@@ -146,6 +147,7 @@ If our saucelabs credentials are not installed, the tests are setup to automatic
 If you'd like to develop Flowsync.js using SauceLabs, you need only create a new entry in our [issue tracker](https://github.com/FreeAllMedia/flowsync/issues) asking for our SauceLabs credentials.
 
 We'll send over all credentials specific to this project so that you can perform comprehensive cross-platform tests.
+-->
 
 
 ## Public Shared Floobits Workspace
