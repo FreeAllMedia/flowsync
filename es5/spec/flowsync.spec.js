@@ -26,13 +26,15 @@ describe("flowsync", function () {
 			it("should work as expected", function (done) {
 				flowsync.series([function (next) {
 					//do something
-					next(null, 1);
+					setTimeout(next, 1);
 				}, function (next) {
-					next(new Error("some error"));
+					setTimeout(next, 1);
 				}], function (error, results) {
 					//do something after the series
 					done();
 				});
+
+				clock.tick(5);
 			});
 		});
 
@@ -40,13 +42,15 @@ describe("flowsync", function () {
 			it("should work as expected", function (done) {
 				flowsync.series([function stepOne(next) {
 					//do something
-					next(null, 1);
+					setTimeout(next, 1);
 				}, function stepTwo(next) {
-					next(new Error("some error"));
+					setTimeout(next, 1);
 				}], function finalStep(error, results) {
 					//do something after the series
 					done();
 				});
+
+				clock.tick(5);
 			});
 		});
 	});
@@ -146,11 +150,11 @@ describe("flowsync", function () {
 			items = [0, 1, 2];
 
 			itemSpy = [sinon.spy(function (item, finish) {
-				finish();
+				setTimeout(finish, 1);
 			}), sinon.spy(function (item, finish) {
-				finish();
+				setTimeout(finish, 1);
 			}), sinon.spy(function (item, finish) {
-				finish();
+				setTimeout(finish, 1);
 			})];
 
 			iteratorFunction = function (item, finish) {
@@ -165,6 +169,8 @@ describe("flowsync", function () {
 				sinon.assert.callOrder(itemSpy[0], itemSpy[1], itemSpy[2]);
 				done();
 			});
+
+			clock.tick(5);
 		});
 
 		it("should call the function until an error occurs and then the callback with that error", function (done) {
@@ -176,6 +182,8 @@ describe("flowsync", function () {
 				error.should.eql(errorData);
 				done();
 			});
+
+			clock.tick(5);
 		});
 	});
 
