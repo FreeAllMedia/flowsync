@@ -1,2 +1,1 @@
-import Main from "./es5/lib/flowsync.js";
-export default Main;
+module.exports = require("./es5/lib/flowsync.js");
