@@ -1,6 +1,6 @@
 {
   "name": "flowsync",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "An ES6 flow control component.",
   "main": "index.js",
   "scripts": {
@@ -36,8 +36,7 @@
   },
   "homepage": "https://github.com/FreeAllMedia/flowsync",
   "dependencies": {
-    "async": "^1.2.1",
-    "inflection": "^1.7.1"
+    "async": "^1.2.1"
   },
   "devDependencies": {
     "babel": "^5.5.6",
