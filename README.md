@@ -30,14 +30,7 @@ flowsync.series(functionCollection, function finalCallback(error, results) {
 *Every single build and release is automatically tested on the following platforms:*
 
 ![node 0.12.x](https://img.shields.io/badge/node-0.12.x-brightgreen.svg) ![node 0.11.x](https://img.shields.io/badge/node-0.11.x-brightgreen.svg) ![iojs 2.x.x](https://img.shields.io/badge/iojs-2.x.x-brightgreen.svg) ![iojs 1.x.x](https://img.shields.io/badge/iojs-1.x.x-brightgreen.svg)
-
-No browser support, yet.
-
-<!--
-No browser support, yet. See: https://www.pivotaltracker.com/n/projects/1366342/stories/97586636
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/flowsync.svg)](https://saucelabs.com/u/flowsync) 
--->
-
 
 *If your platform is not listed above, you can test your local environment for compatibility by copying and pasting the following commands into your terminal:*
 
@@ -135,7 +128,6 @@ It's easy to run the test suite locally, and *highly recommended* if you're usin
 npm test
 ```
 
-<!--
 ### SauceLabs Credentials
 
 We've setup our tests to automatically detect whether or not you have our saucelabs credentials installed in your environment (`process.env.SAUCE_USERNAME`).
@@ -147,12 +139,12 @@ If our saucelabs credentials are not installed, the tests are setup to automatic
 If you'd like to develop Flowsync.js using SauceLabs, you need only create a new entry in our [issue tracker](https://github.com/FreeAllMedia/flowsync/issues) asking for our SauceLabs credentials.
 
 We'll send over all credentials specific to this project so that you can perform comprehensive cross-platform tests.
--->
 
-
+<!--
 ## Public Shared Floobits Workspace
 
 Whenever we're working on Flowsync.js, we connect to a public workspace on FlooBits that lets you see and interact with the developers. Feel free to stop by, say hello, and offer suggestions!
 
 https://floobits.com/FreeAllMedia/flowsync
 
+-->
