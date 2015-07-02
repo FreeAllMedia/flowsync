@@ -30,6 +30,7 @@ flowsync.series(functionCollection, function finalCallback(error, results) {
 *Every single build and release is automatically tested on the following platforms:*
 
 ![node 0.12.x](https://img.shields.io/badge/node-0.12.x-brightgreen.svg) ![node 0.11.x](https://img.shields.io/badge/node-0.11.x-brightgreen.svg) ![iojs 2.x.x](https://img.shields.io/badge/iojs-2.x.x-brightgreen.svg) ![iojs 1.x.x](https://img.shields.io/badge/iojs-1.x.x-brightgreen.svg)
+
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/flowsync.svg)](https://saucelabs.com/u/flowsync) 
 
 *If your platform is not listed above, you can test your local environment for compatibility by copying and pasting the following commands into your terminal:*
