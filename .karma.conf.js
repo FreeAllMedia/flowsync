@@ -64,7 +64,7 @@ let configOptions = {
 /**
  * Special Options For SauceLabs
  */
-if (process.env.SAUCE_USERNAME) {
+if (process.env.TRAVIS_BUILD_NUMBER && process.env.SAUCE_USERNAME) {
     /**
      * If SauceLabs credentials are available,
      * set up the tests to run through them.

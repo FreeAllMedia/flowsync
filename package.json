@@ -1,6 +1,6 @@
 {
   "name": "flowsync",
-  "version": "0.1.0",
+  "version": "0.1.6",
   "description": "An ES6 flow control component.",
   "main": "index.js",
   "scripts": {
@@ -36,13 +36,12 @@
   },
   "homepage": "https://github.com/FreeAllMedia/flowsync",
   "dependencies": {
-    "async": "^1.2.1",
-    "inflection": "^1.7.1"
+    "async": "^1.2.1"
   },
   "devDependencies": {
     "babel": "^5.5.6",
     "chai": "^3.0.0",
-    "codeclimate-test-reporter": "0.0.4",
+    "coveralls": "^2.11.2",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.1.0",
     "gulp-istanbul": "^0.10.0",
