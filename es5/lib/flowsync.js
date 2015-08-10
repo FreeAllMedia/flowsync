@@ -184,11 +184,7 @@ var FlowSync = (function () {
     * ```
     */
     value: function parallel() {
-      for (var _len = arguments.length, options = Array(_len), _key = 0; _key < _len; _key++) {
-        options[_key] = arguments[_key];
-      }
-
-      async.parallel.apply(async, options);
+      async.parallel.apply(async, arguments);
     }
   }, {
     key: 'eachParallel',
@@ -215,11 +211,7 @@ var FlowSync = (function () {
     * ```
     */
     value: function eachParallel() {
-      for (var _len2 = arguments.length, options = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-        options[_key2] = arguments[_key2];
-      }
-
-      async.each.apply(async, options);
+      async.each.apply(async, arguments);
     }
   }, {
     key: 'eachSeries',
@@ -246,11 +238,7 @@ var FlowSync = (function () {
     * ```
     */
     value: function eachSeries() {
-      for (var _len3 = arguments.length, options = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-        options[_key3] = arguments[_key3];
-      }
-
-      async.eachSeries.apply(async, options);
+      async.eachSeries.apply(async, arguments);
     }
   }, {
     key: 'mapParallel',
@@ -284,11 +272,7 @@ var FlowSync = (function () {
     * ```
     */
     value: function mapParallel() {
-      for (var _len4 = arguments.length, options = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-        options[_key4] = arguments[_key4];
-      }
-
-      async.map.apply(async, options);
+      async.map.apply(async, arguments);
     }
   }, {
     key: 'series',
@@ -335,11 +319,7 @@ var FlowSync = (function () {
     * ```
     */
     value: function series() {
-      for (var _len5 = arguments.length, options = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
-        options[_key5] = arguments[_key5];
-      }
-
-      async.series.apply(async, options);
+      async.series.apply(async, arguments);
     }
   }, {
     key: 'mapSeries',
@@ -373,11 +353,7 @@ var FlowSync = (function () {
     * ```
     */
     value: function mapSeries() {
-      for (var _len6 = arguments.length, options = Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {
-        options[_key6] = arguments[_key6];
-      }
-
-      async.mapSeries.apply(async, options);
+      async.mapSeries.apply(async, arguments);
     }
   }]);
 
