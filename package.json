@@ -1,6 +1,6 @@
 {
   "name": "flowsync",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "An ES6 flow control component.",
   "main": "index.js",
   "scripts": {
