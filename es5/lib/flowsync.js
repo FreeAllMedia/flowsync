@@ -184,14 +184,8 @@ var FlowSync = (function () {
     * ```
     */
     value: function parallel() {
-      for (var _len = arguments.length, options = Array(_len), _key = 0; _key < _len; _key++) {
-        options[_key] = arguments[_key];
-      }
-
-      async.parallel.apply(async, options);
+      async.parallel.apply(async, arguments);
     }
-  }, {
-    key: 'eachParallel',
 
     /**
     * Calls the provided iterator function once for each item in parallel.
@@ -214,15 +208,11 @@ var FlowSync = (function () {
     * FlowSync.eachParallel(items, iteratorFunction, callback);
     * ```
     */
-    value: function eachParallel() {
-      for (var _len2 = arguments.length, options = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-        options[_key2] = arguments[_key2];
-      }
-
-      async.each.apply(async, options);
-    }
   }, {
-    key: 'eachSeries',
+    key: 'eachParallel',
+    value: function eachParallel() {
+      async.each.apply(async, arguments);
+    }
 
     /**
     * Calls the provided iterator function once for each item in series.
@@ -245,15 +235,11 @@ var FlowSync = (function () {
     * FlowSync.eachSeries(items, iteratorFunction, callback);
     * ```
     */
-    value: function eachSeries() {
-      for (var _len3 = arguments.length, options = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-        options[_key3] = arguments[_key3];
-      }
-
-      async.eachSeries.apply(async, options);
-    }
   }, {
-    key: 'mapParallel',
+    key: 'eachSeries',
+    value: function eachSeries() {
+      async.eachSeries.apply(async, arguments);
+    }
 
     /**
     * Calls provided iterator function with each element of the array as an argument, and produces a new array.
@@ -283,15 +269,11 @@ var FlowSync = (function () {
     * }
     * ```
     */
-    value: function mapParallel() {
-      for (var _len4 = arguments.length, options = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-        options[_key4] = arguments[_key4];
-      }
-
-      async.map.apply(async, options);
-    }
   }, {
-    key: 'series',
+    key: 'mapParallel',
+    value: function mapParallel() {
+      async.map.apply(async, arguments);
+    }
 
     /**
     * Calls each function provided in serial order, then calls callback.
@@ -334,15 +316,22 @@ var FlowSync = (function () {
     * }
     * ```
     */
-    value: function series() {
-      for (var _len5 = arguments.length, options = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
-        options[_key5] = arguments[_key5];
-      }
-
-      async.series.apply(async, options);
-    }
   }, {
-    key: 'mapSeries',
+    key: 'series',
+    value: function series() {
+      async.series.apply(async, arguments);
+    }
+
+    /**
+     * [waterfall description]
+     * @param  {[type]} ...options [description]
+     * @return {[type]}            [description]
+     */
+  }, {
+    key: 'waterfall',
+    value: function waterfall() {
+      async.waterfall.apply(async, arguments);
+    }
 
     /**
     * Calls provided iterator function with each element of the array as an argument, in serial order.
@@ -372,12 +361,10 @@ var FlowSync = (function () {
     * }
     * ```
     */
+  }, {
+    key: 'mapSeries',
     value: function mapSeries() {
-      for (var _len6 = arguments.length, options = Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {
-        options[_key6] = arguments[_key6];
-      }
-
-      async.mapSeries.apply(async, options);
+      async.mapSeries.apply(async, arguments);
     }
   }]);
 

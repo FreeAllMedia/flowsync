@@ -254,6 +254,63 @@ describe("flowsync", function () {
 		});
 	});
 
+	describe("flowsync.waterfall(functionCollection, callback)", function () {
+		let functionOne,
+				functionTwo,
+				functionThree,
+				functionCollection,
+				callback;
+
+		beforeEach(function () {
+			functionOne = sinon.spy((callback) => {
+				callback(null, "1", "2");
+			});
+
+			functionTwo = sinon.spy((argumentOne, argumentTwo, callback) => {
+				callback(null, "3");
+			});
+
+			functionThree = sinon.spy((argumentOne, callback) => {
+				callback(null);
+			});
+
+			functionCollection = [
+				functionOne,
+				functionTwo,
+				functionThree
+			];
+
+			callback = sinon.spy();
+		});
+
+		it("should call the first function from functionCollection", function (done) {
+			flowsync.waterfall(functionCollection, seriesComplete);
+			function seriesComplete() {
+				functionOne.called.should.be.true;
+				done();
+			}
+		});
+
+		it("should call the second function from functionCollection, passing the results of function one as arguments", function (done) {
+			flowsync.waterfall(functionCollection, seriesComplete);
+			function seriesComplete() {
+				functionTwo.calledWith("1", "2").should.be.true;
+				done();
+			}
+		});
+		it("should call the thirdCall function from functionCollection, passing the results of function two as arguments", function (done) {
+			flowsync.waterfall(functionCollection, seriesComplete);
+			function seriesComplete() {
+				functionThree.calledWith("3").should.be.true;
+				done();
+			}
+		});
+
+		it("should make a callback when all functions have completed", function (done) {
+			flowsync.waterfall(functionCollection, done);
+		});
+	});
+
 	describe("flowsync.mapParallel(values, iterator, callback)", function () {
 		let values,
 				iterator,

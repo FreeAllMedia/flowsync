@@ -296,6 +296,15 @@ export default class FlowSync {
     async.series(...options);
   }
 
+	/**
+	 * [waterfall description]
+	 * @param  {[type]} ...options [description]
+	 * @return {[type]}            [description]
+	 */
+	static waterfall(...options) {
+    async.waterfall(...options);
+  }
+
   /**
   * Calls provided iterator function with each element of the array as an argument, in serial order.
   *
